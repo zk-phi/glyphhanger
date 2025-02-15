@@ -20,15 +20,10 @@ pip install fonttools
 
 ```sh
 # Additional installation for --flavor=woff2
-git clone https://github.com/google/brotli
-cd brotli
-python setup.py install
+pip install brotli
 
 # Additional installation for --flavor=woff --with-zopfli
-git clone https://github.com/anthrotype/py-zopfli
-cd py-zopfli
-git submodule update --init --recursive
-python setup.py install
+pip install zopfli
 ```
 
 If you want to read an in-depth tutorial on the installation steps above, please read [How I set up Glyphhanger on macOS for optimizing and converting font files for the Web](https://www.sarasoueidan.com/blog/glyphhanger/) by Sara Soueidan.
@@ -147,6 +142,15 @@ Writing CSS file: LatoLatin-Regular.css
   src: url(sourcesanspro-regular-subset.woff2) format("woff2"), url(sourcesanspro-regular-subset.woff) format("woff");
   unicode-range: U+41-44;
 }
+```
+
+#### Specify output directory for any files created with `--output`
+
+```sh
+> glyphhanger --subset=*.ttf --output=some/other/path
+
+Subsetting LatoLatin-Regular.ttf to LatoLatin-Regular-subset.woff (was 145.06 KB, now 2.88 KB)
+Subsetting LatoLatin-Regular.ttf to LatoLatin-Regular-subset.woff2 (was 145.06 KB, now 2.24 KB)
 ```
 
 ### Whitelist Characters

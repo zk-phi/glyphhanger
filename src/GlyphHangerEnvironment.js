@@ -1,6 +1,7 @@
 const chalk = require( "chalk" );
 const path = require( "path" );
-const fs = require( "fs-extra" );
+const fs = require( "fs" );
+const fsp = fs.promises;
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const puppeteer = require("puppeteer");
@@ -15,8 +16,8 @@ class EnvironmentScripts {
 	}
 
 	async read() {
-		this.characterset = await fs.readFile(this.charactersetPath, "utf-8");
-		this.glyphhanger = await fs.readFile(this.glyphhangerPath, "utf-8");
+		this.characterset = await fsp.readFile(this.charactersetPath, "utf8");
+		this.glyphhanger = await fsp.readFile(this.glyphhangerPath, "utf8");
 	}
 }
 
